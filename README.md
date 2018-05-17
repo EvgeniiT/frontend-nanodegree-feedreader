@@ -10,6 +10,10 @@ This is a project to use Jasmine to write a number of tests against a pre-existi
 
 ## How to run?
 
+### Online
+* Open [link](https://evgeniit.github.io/frontend-nanodegree-feedreader/#) in your browser
+
+### Locally
 * Clone project
 `git clone https://github.com/EvgeniiT/frontend-nanodegree-feedreader.git`
 * Open `index.html` in browser.
@@ -29,3 +33,6 @@ This is a project to use Jasmine to write a number of tests against a pre-existi
 * [Roboto font](http://fonts.googleapis.com/css?family=Roboto:400,100,300,700)
 * [Icomoon](https://icomoon.io/#home)
 * [Jasmine 2.1.2](https://github.com/jasmine/jasmine/releases/tag/v2.1.2)
+* [jQuery 2.1.1](https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js)
+* [Handlebars 2.0.0](https://cdn.jsdelivr.net/handlebarsjs/2.0.0/handlebars.min.js)
+* [Google Api](https://google.com/jsapi)
