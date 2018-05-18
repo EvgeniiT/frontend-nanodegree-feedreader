@@ -43,13 +43,10 @@ $(function() {
       * visibility when the menu icon is clicked.
       */
     it('ensures the menu changes visibility when the menu icon is clicked', function() {
-      if ($('body').hasClass('menu-hidden')) {
         $('.menu-icon-link').click();
-        expect($('body').hasClass('menu-hidden')).toBe(false);
-      } else {
+        const menuHidden = $('body').hasClass('menu-hidden');
         $('.menu-icon-link').click();
-        expect($('body').hasClass('menu-hidden')).toBe(true);
-      }
+        expect($('body').hasClass('menu-hidden')).not.toBe(menuHidden);
     });
   });
 
@@ -66,7 +63,7 @@ $(function() {
     it('ensures when the loadFeed function is called and completes its work,\
         there is at least a single .entry element within the .feed container'
       , function(done) {
-          expect($('.entry').length).toBeGreaterThan(0);
+          expect($('.feed .entry').length).toBeGreaterThan(0);
           done();
     });
   });
@@ -76,9 +73,9 @@ $(function() {
     let prevContent = '';
     beforeEach(function(done) {
       loadFeed(0, function() {
-        prevContent = $('.feed').text();
+        prevContent = $('.feed').html();
         loadFeed(1, function() {
-          content = $('.feed').text();
+          content = $('.feed').html();
           done();
         });
       });
