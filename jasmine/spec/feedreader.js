@@ -13,7 +13,7 @@ $(function() {
      * in the allFeeds object and ensures it has a URL defined
      * and that the URL is not empty.
      */
-     it('feed number has defined URL and it is not empty', function() {
+     it('have defined URLs and they are not empty', function() {
        allFeeds.forEach(function(feed) {
          expect(feed.url).toBeDefined();
          expect(feed.url.length).not.toBe(0);
@@ -24,7 +24,7 @@ $(function() {
      * in the allFeeds object and ensures it has a name defined
      * and that the name is not empty.
      */
-     it('feed number has defined name and it is not empty', function() {
+     it('have defined names and they are not empty', function() {
        allFeeds.forEach(function(feed) {
          expect(feed.name).toBeDefined();
          expect(feed.name.length).not.toBe(0);
@@ -36,25 +36,28 @@ $(function() {
     /* Test that ensures the menu element is
      * hidden by default.
      */
-    it('ensures the menu element is hidden by default', function() {
+    it('element is hidden by default', function() {
       expect($('body').hasClass('menu-hidden')).toBe(true);
     });
      /* Test that ensures the menu changes
       * visibility when the menu icon is clicked.
       */
-    it('ensures the menu changes visibility when the menu icon is clicked', function() {
-        $('.menu-icon-link').click();
-        const menuHidden = $('body').hasClass('menu-hidden');
-        $('.menu-icon-link').click();
-        expect($('body').hasClass('menu-hidden')).not.toBe(menuHidden);
+    it('becomes visible when the menu icon is clicked', function() {
+      $('.menu-icon-link').click();
+      expect($('body').hasClass('menu-hidden')).toBe(false);
+    });
+
+    it('becomes invisible when the menu icon is clicked again', function() {
+      $('.menu-icon-link').click();
+      expect($('body').hasClass('menu-hidden')).toBe(true);
     });
   });
 
   describe('Initial Entries', function() {
     beforeEach(function(done) {
-      loadFeed(0, function() {
-        done();
-      });
+      // loadFeed(0, function() {
+        loadFeed(0, done);
+      // });
     });
     /* Test that ensures when the loadFeed
     * function is called and completes its work, there is at least
